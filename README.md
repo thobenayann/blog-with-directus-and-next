@@ -1,9 +1,16 @@
-# We want to create an easy backend UI with Strapi as CMS and a blog with Next JS
+# We want to create an easy backend UI with Directus as CMS and a blog with Next JS
 
-## First : Let's create our Strapi app
+## First : Let's create our Directus app
 
-### 🚀 Part A: Create a new project with Strapi
-#### Step 1 : `npx create-strapi-app <my-project> --quickstart`
+### 🚀 Part A: Create a new project with Directus 9
+#### Step 1 : `npx create-directus-project <my-project>`
+
+#### Step 2 : Connect your database
+
+Directus need to be connected to a database to be installed.
+So, if you have one, just add your informations, if you don't have one and want just to start quickly your project, use SQLite as database.
+You can choose random mail and password for a test project.
+
 #### Step 2 : Register the first administrator user
 
 Once the installation is complete, your browser automatically opens a new tab.
