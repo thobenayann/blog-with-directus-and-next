@@ -3,6 +3,7 @@
 ## First : Let's create our Directus app
 
 ### 🚀 Part A: Create a new project with Directus 9
+[https://docs.directus.io/getting-started/quickstart/]
 #### Step 1 : `npx create-directus-project <my-project>`
 
 #### Step 2 : Connect your database
@@ -11,54 +12,41 @@ Directus need to be connected to a database to be installed.
 So, if you have one, just add your informations, if you don't have one and want just to start quickly your project, use SQLite as database.
 You can choose random mail and password for a test project.
 
-#### Step 2 : Register the first administrator user
+#### Step 3 : Login to app
 
-Once the installation is complete, your browser automatically opens a new tab.
-(if it doesn't or if you want to re-open the login tab `yarn run develop`)
-By completing the form, you create your own account. Once done, you become the first administator user of this Strapi application. Welcome aboard, commander!
-You now have access to the admin panel (opens new window):
-
-Now your strapi app is ready to use !
+Use the localhost url to access and login to your app.
+Probably : [http://localhost:8055/admin]
 
 ### 🛠 Part B: Build your content
 #### Step 1: Create collection types with the Content-Types Builder
-- Go to Plugins > Content-Types Builder (opens new window)in the main navigation.
-- Create a table with Display name
+- Follow the prompts and create a Collection.
+- Collection is like a "table" for your database
 - Choose every field you need for your table
-- Switch to **Advanced Settings** tab if you need to custom your field like "Required" or "Unique field" for example
-- Finally, click **Save** and wait for Strapi to restart
+- When you create a field; choose if you need to custom your field like "Required" or "Unique field" for example
+- Finally, click **check** at the end of all options and wait for Directus to add your content
 
 Create every Collection types you need for your application
 
 #### Step 2: Use the collection types to create new entries
-- Go to Collection types > <My_Collection> (opens new window)in the main navigation.
-- Click on Add New <Collection_Element>.
+- Go to Collection on the left side of your navigation.
+- Select your collection
+- Click on **+** on the right side
 - You are creating a new element (article for example)
-- Click Save and then Publish.
 
 You can set-up a relation filed wich is to make relation beetween your collections types.
 
 #### Step 3: Set Roles & Permissions
 We want to be able to get our data, so the next step is for handle our endpoints and our CRUD :
-- Click on General > Settings at the bottom of the main navigation.
-- Under Users & Permissions Plugin, choose Roles (opens new window).
-- Click the Public role.
-- Scroll down under Permissions.
-- In the Application tab, find your <Collection_Type>.
-- Click the checkboxes next to find and findone.
-- Repeat with every collection you need to have access: click the checkboxes next to find and findone.
-- Finally, click Save.
+By default, all content entered into Directus is considered private. This means that no data will be returned by the API, unless requested by an authenticated user that has the correct permissions. In order to have the API return our items, we'll have to setup some permissions. Navigate to Settings Module > Roles & Permissions.
 
-#### Step 4: Publish the content
-Don't forget to publish your content !
-By default, any content you create is saved as a draft.
+Directus ships with a special "Public" role that controls what data is returned to non-authenticated users. Select the public role, find your collection, and click the icon under the "eye" icon (read/view permission) to allow the public role to read the items in your collection.
 
-#### Step 5: Use the API
-Now you can use for example Postman or Insomnia or your front-end application to get some data !
-your first end point will be at [http://localhost:1337/<collection>]
-and gives you the list of all content in your table.
+#### Step 4: Use the API
+Now that your project has some content in it, it's time to start using this content externally. Data can be accessed in a number of ways, including the REST API, GraphQL, the CLI, or even straight from the database. In this case, we'll use the /items/ REST API endpoint to retrieve the item we just created.
 
-The response will be in Json.
+Using your browser, or an API tool like Postman (opens new window)or Paw (opens new window), open http://localhost:8055/items/articles (opens new window).
+
+And there it is! The Article Item you just created is being served in beautiful JSON, ready to be used anywhere and everywhere!
 
 Have fun !
 
